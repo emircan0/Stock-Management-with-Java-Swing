@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- Veritabanına bağlantı ayarları -->
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/stok?useSSL=false&amp;serverTimezone=UTC</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">12345</property>
+
+        <!-- SQL Dialect: Kullanılan veritabanının SQL lehçesi -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- Caching: Önbellek ayarları (isteğe bağlı) -->
+        <property name="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+
+        <!-- Debug Modu (isteğe bağlı) -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- CLOB ve BLOB alanlarının nasıl işleneceği (isteğe bağlı) -->
+        <property name="hibernate.jdbc.lob.non_contextual_creation">true</property>
+        
+        <mapping class="model.StokKartModel"/>
+        <mapping class="model.KdvTipiModel"/>
+        <mapping class="model.StokTipiModel"/>
+        
+        
+    </session-factory>
+</hibernate-configuration>
